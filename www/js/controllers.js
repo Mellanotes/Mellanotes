@@ -35,7 +35,7 @@ angular.module('starter.controllers', [])
 .controller('CompanyCtrl', function($scope, $stateParams) {
   $scope.companies = [
     {
-      id: 0,
+      id: 1,
       name: 'Elbit Systems',
       address: 'Hatavor 2 Yokneam, Israel',
       location: "32.66624/35.10404",
@@ -43,42 +43,43 @@ angular.module('starter.controllers', [])
     }
   ];
   $scope.agents = [{
-      id: 0,
+      id: 1,
       name: 'Ben Sparrow',
       title: 'Regional Manager',
       face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
     }, {
-      id: 1,
+      id: 2,
       name: 'Max Lynx',
       title: 'Assistant to the Regional Manager',
       face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
     },{
-      id: 2,
+      id: 3,
       name: 'Adam Bradleyson',
       title: 'Sales Representative',
       face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
     }, {
-      id: 3,
+      id: 4,
       name: 'Perry Governor',
       title: 'Regional Co-Manager',
       face: 'https://pbs.twimg.com/profile_images/491995398135767040/ie2Z_V6e.jpeg'
     }, {
-      id: 4,
+      id: 5,
       name: 'Mike Harrington',
       title: 'Sales Representative',
       face: 'https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png'
     }];
 })
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+.controller('CommentsCtrl', function($scope) {
+  $scope.comments = [
+    { id: 1, user_id: 1, company_id: 1, comment: "user 1 comment 1 for company 1" },
+    { id: 2, user_id: 1, company_id: 1, comment: "user 1 comment 2 for company 1" },
+    { id: 3, user_id: 2, company_id: 1, comment: "user 2 comment 3 for company 1" },
+    { id: 4, user_id: 3, company_id: 1, comment: "user 3 comment 4 for company 1" },
+    { id: 5, user_id: 3, company_id: 1, comment: "user 3 comment 5 for company 1" },
+    { id: 6, user_id: 4, company_id: 1, comment: "user 4 comment 6 for company 1" },
+    { id: 7, user_id: 5, company_id: 1, comment: "user 5 comment 7 for company 1" }
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('CommentCtrl', function($scope, $stateParams) {
 });
