@@ -82,4 +82,52 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CommentCtrl', function($scope, $stateParams) {
+})
+
+
+.controller('MapCtrl', function($scope, $ionicLoading) {
+    window.setTimeout(function(){
+        var myLatlng = new google.maps.LatLng(32.6652, 35.1059);
+
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions)
+
+
+//        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        var client1 = new google.maps.Marker({
+            position: new google.maps.LatLng(32.6652, 35.1059),
+            map: map,
+            title: "Mellanox"
+        });
+        google.maps.event.addListener(client1,'click',function(){
+          alert('navigate to client1')
+        })
+
+        var client2 = new google.maps.Marker({
+            position: new google.maps.LatLng(32.6628, 35.1048),
+            map: map,
+            title: "Given Imaging"
+        });
+        google.maps.event.addListener(client2,'click',function(){
+          alert('navigate to client2')
+        })
+
+
+        /*navigator.geolocation.getCurrentPosition(function(pos) {
+            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var myLocation = new google.maps.Marker({
+                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                map: map,
+                title: "My Location"
+            });
+        });*/
+        $scope.map = map;
+    });
+	
 });
+
