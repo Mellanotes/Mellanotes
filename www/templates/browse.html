@@ -1,5 +1,18 @@
-<ion-view view-title="Browse">
+<ion-view view-title="Company	">
   <ion-content>
-    <h1>Browse</h1>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="company in companies" href="#/app/companies/{{companies.id}}">
+      	<img ng-src="{{company.face}}">
+        <h2>{{company.name}}</h2>
+        <p>{{company.address}}</p>
+         </ion-item>
+    </ion-list>
+	      	<ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="agent in agents" type="item-text-wrap" href="#/tab/agents/{{agent.id}}">
+		        <img ng-src="{{agent.face}}">
+		        <h2>{{agent.name}}</h2>
+		        <p>{{agent.title}}</p> 
+	        </ion-item>
+      	
+     
   </ion-content>
 </ion-view>

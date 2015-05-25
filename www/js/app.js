@@ -42,9 +42,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   .state('app.browse', {
     url: "/browse",
     views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
+        'menuContent': {
+          templateUrl: "templates/browse.html",
+          controller: 'CompanyCtrl'
+       }
     }
   })
     .state('app.company', {
