@@ -75,6 +75,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('tab.company', {
+    url: '/company',
+    views: {
+      'tab-company': {
+        templateUrl: 'templates/tab-company.html',
+        controller: 'CompanyCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback

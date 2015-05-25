@@ -2,11 +2,16 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
+.controller('ChatsCtrl', function($scope, Demo) {
+  $scope.chats = Demo.all();
   $scope.remove = function(chat) {
-    Chats.remove(chat);
+    Demo.remove(chat);
   }
+})
+
+.controller('CompanyCtrl', function($scope, Demo) {
+  $scope.company = Demo.companies();
+  $scope.agents = Demo.agents();
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
