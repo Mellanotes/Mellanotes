@@ -92,6 +92,7 @@ angular.module('starter.controllers', [])
         var mapOptions = {
             center: myLatlng,
             zoom: 16,
+			disableDefaultUI: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
