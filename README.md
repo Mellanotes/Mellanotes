@@ -1,3 +1,3 @@
 # Mellanotes
 
-Hackatone 2015
+Hackaton 2015
