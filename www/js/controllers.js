@@ -99,23 +99,39 @@ angular.module('starter.controllers', [])
 
 
 //        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+		var infoWindow = new google.maps.InfoWindow ({
+		  content: "<div>content1 content1<br/>content1 content1<br/><a href='/#/app/comments/1'>Show events</a>"
+		});
         var client1 = new google.maps.Marker({
             position: new google.maps.LatLng(32.6652, 35.1059),
             map: map,
-            title: "Mellanox"
+            title: "Mellanox",
+			infoWindow: infoWindow
         });
+		
         google.maps.event.addListener(client1,'click',function(){
-          alert('navigate to client1')
-        })
-
+          infoWindow.open(map,client1)
+		  console.log('tick1')
+		})
+		google.maps.event.trigger(client1, 'click')
+		
+		var infoWindow2 = new google.maps.InfoWindow ({
+		  content: "<div>content2 content2<br/>content2 content2<br/><a href='/#/app/comments/2'>Show events</a>"
+		});
         var client2 = new google.maps.Marker({
             position: new google.maps.LatLng(32.6628, 35.1048),
             map: map,
-            title: "Given Imaging"
+            title: "Given Imaging",
+			infoWindow: infoWindow2
         });
-        google.maps.event.addListener(client2,'click',function(){
-          alert('navigate to client2')
+		google.maps.event.addListener(client2,'click',function(){
+			console.log('tick2');
+          infoWindow2.open(map,client2)
         })
+		google.maps.event.trigger(client2, 'click')
+        /*google.maps.event.addListener(client2,'click',function(){
+          alert('navigate to client2')
+        })*/
 
 
         /*navigator.geolocation.getCurrentPosition(function(pos) {
