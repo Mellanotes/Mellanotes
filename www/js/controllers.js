@@ -1,4 +1,4 @@
-// server_url = "https://mellanotes.herokuapp.com/";
+//server_url = "https://mellanotes.herokuapp.com/";
 server_url = "http://localhost:3000/";
 
 angular.module('starter.controllers', ['starter.services'])
@@ -189,6 +189,23 @@ google.maps.event.addListener(client2,'click',function(){
  infoWindow2.open(map,client2)
 })
 google.maps.event.trigger(client2, 'click')
+
+window.setTimeout(function(){
+
+navigator.geolocation.getCurrentPosition(function(pos) {
+    //map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+
+    var myLocation = new google.maps.Marker({
+        position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+        map: map,
+        title: "My Location",
+
+    });
+
+    myLocation.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+     map.panTo(myLocation.getPosition());
+  });
+  }, 3000)
 
 $scope.map = map;
 });
