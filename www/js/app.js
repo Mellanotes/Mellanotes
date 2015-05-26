@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
   .state('app.visit', {
-    url: "/visit/:visitId",
+    url: "/visit/:id",
     views: {
       'menuContent': {
         templateUrl: "templates/visit.html",

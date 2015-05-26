@@ -1,5 +1,5 @@
-server_url = "https://mellanotes.herokuapp.com/";
-// server_url = "http://localhost:3000/";
+// server_url = "https://mellanotes.herokuapp.com/";
+server_url = "http://localhost:3000/";
 
 angular.module('starter.controllers', ['starter.services'])
 
@@ -47,13 +47,7 @@ angular.module('starter.controllers', ['starter.services'])
 // })
 
 .controller('VisitsCtrl', function($scope, $http , $stateParams) {
-  // debugger
   var companies = new Array();
-  // var visits = new Array();
-  // $http.jsonp("http://localhost:3000/customers.json")
-  //      .then(function(res){
-  //         companies = res.data;                
-  //       });
   $http.jsonp(server_url + "customers/"+$stateParams.id+".json?callback=JSON_CALLBACK")
     .then(function(res){
         companies = res.data; 
@@ -66,18 +60,22 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.data = {
     showReordering: false
   };
-  // $http.jsonp("http://localhost:3000/visits.json")
-  //      .then(function(res){
-  //         visits = res.data;                
-  //       });
-  // console companies.visits
-  
-  // console.log('VisitsCtrl:visits', $scope.visits);
 })
 
-.controller('VisitCtrl', function($scope, $stateParams, Demo) {
-  $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
-  // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
+.controller('VisitCtrl', function($scope, $http , $stateParams) {
+
+  var visits = new Array();
+  $http.jsonp(server_url + "visits/"+ $stateParams.id + ".json?callback=JSON_CALLBACK")
+    .then(function(res){
+        visits = res.data; 
+        $scope.visit = visits; 
+        console.log('VisitCtrl:visit', $scope.visit);
+  });
+
+  $scope.data = {
+    showReordering: false
+  };
+
 })
 
 .controller('NewCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
