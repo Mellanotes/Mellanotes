@@ -1,5 +1,5 @@
-server_url = "https://mellanotes.herokuapp.com/";
-// server_url = "http://localhost:3000/";
+// server_url = "https://mellanotes.herokuapp.com/";
+server_url = "http://localhost:3000/";
 
 angular.module('starter.controllers', ['starter.services'])
 
@@ -54,8 +54,7 @@ angular.module('starter.controllers', ['starter.services'])
   //      .then(function(res){
   //         companies = res.data;                
   //       });
-"https://mellanotes.herokuapp.com/"
-  $http.jsonp(server_url + "customers.json?callback=JSON_CALLBACK")
+  $http.jsonp(server_url + "customers/"+$stateParams.id+".json?callback=JSON_CALLBACK")
     .then(function(res){
         companies = res.data; 
         $scope.companies = companies
