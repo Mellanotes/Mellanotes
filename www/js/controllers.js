@@ -123,9 +123,10 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.addVisit = function(){
     console.log("submit here");
 
+    // visitor_id: $scope.current_user.id,
     var newContact = { visit : {
       company_id: $scope.company.id,
-      visitor_id: $scope.current_user.id,
+      visitor_id: 1,
       opt_txt: $scope.postData.opt_txt,
       pain_txt: $scope.postData.pain_txt,
       action_txt: $scope.postData.action_txt,
@@ -139,7 +140,8 @@ angular.module('starter.controllers', ['starter.services'])
  $http.jsonp(server_url + "createget.json"+url_params+"&callback=JSON_CALLBACK")
   .then(function(res){
     console.log(res.data);
-    window.location.href='#/app/visits/'+$stateParams.id;
+    var seconds = new Date().getTime() / 1000;
+    window.location.href='?'+seconds+'#/app/visits/'+$stateParams.id;
   });
   }
 
