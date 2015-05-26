@@ -33,16 +33,7 @@ angular.module('starter.controllers', ['starter.services'])
   };
 })
 .controller('VisitsCtrl', function($scope, $stateParams, Demo) {
-  $scope.companies = [
-    {
-      id: 1,
-      name: 'Elbit Systems',
-      address: 'Hatavor 2 Yokneam, Israel',
-      location: "32.66624/35.10404",
-      face: 'http://upload.wikimedia.org/wikipedia/commons/2/24/New_Elbit_Logo.jpg',
-      visits: Demo.visits().filter(function(a){ return a.company_id == 1 })
-    }
-  ];
+  $scope.companies = Demo.companies();
   $scope.data = {
     showReordering: false
   };
@@ -56,6 +47,7 @@ angular.module('starter.controllers', ['starter.services'])
 })
 
 .controller('NewCtrl', function($scope, $stateParams, Demo) {
+  $scope.companies = Demo.companies();
   // $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
   // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
 })

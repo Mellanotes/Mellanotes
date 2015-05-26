@@ -27,7 +27,7 @@ angular.module('starter.services', [])
       comm_txt:'',
       face: 'http://portal/images/photo_resize.php?v=2&personid=20661'
     }, {
-	  id: 3,
+	    id: 3,
       name: 'Amit Katz',
       title: 'Sr. Director WW Ethernet Switch Sales',
       visit_date: '15/May/2015',
@@ -72,12 +72,23 @@ angular.module('starter.services', [])
       face: 'http://portal/images/photo_resize.php?v=2&personid=1390'
     }];
 
+  var companies = [
+    {
+      id: 1,
+      name: 'Elbit Systems',
+      address: 'Hatavor 2 Yokneam, Israel',
+      location: "32.66624/35.10404",
+      face: 'http://upload.wikimedia.org/wikipedia/commons/2/24/New_Elbit_Logo.jpg',
+      visits: visits.filter(function(a){ return a.company_id == 1 })
+    }
+  ];
+  
 	return {
 		visits: function() {
 	      return visits;
 	    },
 	    companies: function() {
-	      return visits;
+	      return companies;
 	    },
 	    comments: function() {
 	      return comments;
