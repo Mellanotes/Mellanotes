@@ -1,3 +1,30 @@
+<ion-view view-title="Company	">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right list card" ng-repeat="company in companies" href="#/app/companies/{{companies.id}}" style='background-color:#EEF8FB'>
+      	<img src="{{companies[0].face}}" >
+        <h2>{{companies[0].name}}</h2>
+        <p>{{companies[0].address}} </p> 
+        <span>{{visit.length}} prior visits</span>     
+        <ion-list>
+	      	<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="visit in visits" type="item-text-wrap" href="#/app/visits/{{visit.id}}">
+          <img src="{{visit.face}}" >
+          <h2>{{visit.name}}</h2>
+          <p>{{visit.title}}<br>{{visit.visit_date}}   {{visit.icon_opp}}   </p>
+          <div class="buttons">
+            <button class="button button-clear" ng-show="visit.icon_opp"><i class="icon ion-social-usd"></i></button>
+            <button class="button button-clear" ><i class="icon ion-alert"></i></button>
+            <button class="button button-clear" ><i class="icon ion-ios-list-outline"></i></button>
+            <button class="button button-clear" ><i class="icon ion-document-text"></i></button>
+          </div>
+	        </ion-item>
+      	</ion-list>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+
 <ion-view view-title="Visits">
   <ion-content>
     <div class="list card" style='background-color:#EEF8FB'>
@@ -8,8 +35,8 @@
        <span>{{visits.length}} prior visits</span>     
       </div>     
     </div>
-    <div class="card" collection-repeat="visit in visits">
-      <div onclick="location.href='#/app/visits/1'">
+    <div class="card" collection-repeat="visit in visits" collection-item-width="'95%'">
+      <a ng-href="#/app/visits/{{visit.id}}" class="item">
         <div class="item item-avatar item-button-right">
           <img src="{{visit.face}}" >
           <h2>{{visit.name}}</h2>
@@ -21,7 +48,7 @@
               <button class="button button-clear" ><i class="icon ion-document-text"></i></button>
             </div>
         </div>
-      </div>
+      </a>
     </div>      
   <br><br>
   </ion-content>
