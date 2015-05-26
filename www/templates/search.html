@@ -1,5 +1,33 @@
-<ion-view view-title="Search">
+<ion-view view-title="Visit Details">
   <ion-content>
-    <h1>Search</h1>
+  
+
+
+  <div class="card"  collection-item-width="'95%'" ">
+    
+        
+               <div class="item item-avatar item-button-right">
+    <img src="{{visits[0].face}}" >
+    <h2>{{visits[0].name}}</h2>
+    <p>{{visits[0].title}}<BR>{{visits[0].visit_date}} </p>
+
+<BR>
+    <h2>Opportunities</h2>
+    <p style="white-space:normal;text-align:justify">{{visits[0].opp_txt}}</p>
+<BR>
+    <h2>Pain Points</h2>
+    <p style="white-space:normal;">{{visits[0].pain_txt}}</p>
+<BR>
+    <h2>Action Items</h2>
+    <p style="white-space:normal !important">{{visits[0].action_txt}}</p>
+<BR>
+    <h2>Comments</h2>
+    <p style="white-space:normal !important">{{visits[0].comm_txt}}</p>
+  
+          </div>
+      </div>
+      
+<BR><BR>
+     
   </ion-content>
 </ion-view>
