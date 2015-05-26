@@ -1,18 +1,47 @@
-<ion-view view-title="Company	">
+<ion-view view-title="Visits">
   <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="company in companies" href="#/app/companies/{{companies.id}}">
-      	<img ng-src="{{company.face}}">
-        <h2>{{company.name}}</h2>
-        <p>{{company.address}}</p>
-         </ion-item>
-    </ion-list>
-	      	<ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="agent in agents" type="item-text-wrap" href="#/tab/agents/{{agent.id}}">
-		        <img ng-src="{{agent.face}}">
-		        <h2>{{agent.name}}</h2>
-		        <p>{{agent.title}}</p> 
-	        </ion-item>
-      	
+  
+
+
+<div class="list card" style=background-color:#EEF8FB>
+
+  <div class="item item-avatar item-icon-right" style=background-color:#EEF8FB>
+    <img src="{{companies[0].face}}" >
+    <h2>{{companies[0].name}}</h2>
+ 	<p>{{companies[0].address}} </p>
+   <span>{{employees.length}} prior visits</span>
+    
+  </div>
+ 
+</div>
+
+
+
+	<div class="card" collection-repeat="employee in employees"
+      collection-item-width="'95%'" ">
+		
+              <div onclick="location.href='#/app/comments/1'">
+			  
+	             <div class="item item-avatar item-button-right">
+    <img src="{{employee.face}}" >
+    <h2>{{employee.name}}</h2>
+    <p>{{employee.title}}<BR>{{employee.visit_date}}   {{employee.icon_opp}}   </p>
+
+	
+	<div class="buttons">
+	
+ 		<button class="button button-clear" ng-show="employee.icon_opp"><i class="icon ion-social-usd"></i></button>
+    	<button class="button button-clear" ><i class="icon ion-alert"></i></button>
+    	<button class="button button-clear" ><i class="icon ion-ios-list-outline"></i></button>
+    	<button class="button button-clear" ><i class="icon ion-document-text"></i></button>
+    
+          
+              </div>
+              </div>
+          </div>
+		  </div>
+		  
+<BR><BR>
      
   </ion-content>
 </ion-view>

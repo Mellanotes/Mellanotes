@@ -46,27 +46,92 @@ angular.module('starter.controllers', [])
       id: 1,
       name: 'Ben Sparrow',
       title: 'Regional Manager',
-      face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+	  face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
     }, {
       id: 2,
       name: 'Max Lynx',
       title: 'Assistant to the Regional Manager',
-      face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
+	  face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
     },{
       id: 3,
       name: 'Adam Bradleyson',
       title: 'Sales Representative',
-      face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
+	  face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
     }, {
       id: 4,
       name: 'Perry Governor',
       title: 'Regional Co-Manager',
-      face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
+	  face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
     }, {
       id: 5,
       name: 'Mike Harrington',
       title: 'Sales Representative',
-      face: 'https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png'
+	  face: 'https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png'
+    }];
+$scope.data = {
+    showReordering: false
+  };
+
+  $scope.employees = [{
+      id: 1,
+      name: 'Yosef Avni',
+      title: 'VP, Sales EMEA',
+	  visit_date: '14/May/2015',
+      icon_opp:'true',
+	  icon_pain:'true',
+	  icon_action:'true',
+	  icon_comm:'true',
+	  face: 'http://portal/images/photo_resize.php?v=2&personid=3986'
+    }, {
+      id: 2,
+      name: 'Yael Birk',
+      title: 'Director of sales',
+      visit_date: '11/May/2015',
+	  icon_opp:'false',
+	  icon_pain:'true',
+	  icon_action:'true',
+	  icon_comm:'false',
+      face: 'http://portal/images/photo_resize.php?v=2&personid=20661'
+    }, {
+	id: 3,
+      name: 'Amit Katz',
+      title: 'Sr. Director WW Ethernet Switch Sales',
+      visit_date: '15/May/2015',
+	  icon_opp:'false',
+	  icon_pain:'true',
+	  icon_action:'false',
+	  icon_comm:'true',
+      face: 'http://portal/images/photo_resize.php?v=2&personid=5445'
+    }, {
+      id: 4,
+      name: 'Darrin Chen',
+      title: 'VP, Worldwide Channel Sale',
+      visit_date: '28/Apr/2015',
+	  icon_opp:'true',
+	  icon_pain:'true',
+	  icon_action:'true',
+	  icon_comm:'true',
+      face: 'http://portal/images/photo_resize.php?v=2&personid=1390'
+    },{
+      id: 5,
+      name: 'Gil Briman',
+      title: 'VP, APAC',
+      visit_date: '13/Apr/2015',
+	  icon_opp:'true',
+	  icon_pain:'true',
+	  icon_action:'true',
+	  icon_comm:'false',
+      face: 'http://portal/images/photo_resize.php?v=2&personid=18153'
+    }, {
+      id: 6,
+      name: 'Darrin Chen',
+      title: 'VP, Worldwide Channel Sale',
+      visit_date: '1/Mar/2015',
+	  icon_opp:'true',
+	  icon_pain:'true',
+	  icon_action:'false',
+	  icon_comm:'false',
+      face: 'http://portal/images/photo_resize.php?v=2&personid=1390'
     }];
 })
 .controller('CommentsCtrl', function($scope) {
