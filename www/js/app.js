@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     views: {
       'menuContent': {
         templateUrl: "templates/search.html",
-        controller: 'CompanyCtrl' 
+        controller: 'VisitsCtrl' 
       }
     }
   })
@@ -45,20 +45,10 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     views: {
         'menuContent': {
           templateUrl: "templates/browse.html",
-          controller: 'CompanyCtrl'
+          controller: 'VisitsCtrl'
        }
     }
   })
-    .state('app.company', {
-      url: "/company",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/company.html",
-          controller: 'CompanyCtrl'
-        }
-      }
-    })
-
     .state('app.visits', {
       url: "/visits",
       views: {

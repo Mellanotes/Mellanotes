@@ -32,7 +32,7 @@ angular.module('starter.controllers', ['starter.services'])
     }, 1000);
   };
 })
-.controller('CompanyCtrl', function($scope, $stateParams, Demo) {
+.controller('VisitsCtrl', function($scope, $stateParams, Demo) {
   $scope.companies = [
     {
       id: 1,
@@ -47,9 +47,6 @@ angular.module('starter.controllers', ['starter.services'])
     showReordering: false
   };
 
-  $scope.visits = Demo.visits();
-})
-.controller('VisitsCtrl', function($scope, Demo) {
   $scope.visits = Demo.visits();
 })
 
