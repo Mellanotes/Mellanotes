@@ -35,16 +35,7 @@ angular.module('starter.controllers', ['starter.services'])
     }, 1000);
   };
 })
-// .controller('VisitsCtrl', function($scope, $stateParams, Demo) {
 
-//   $scope.companies = Demo.companies();
-
-//   $scope.data = {
-//     showReordering: false
-//   };
-
-//   $scope.visits = Demo.visits();
-// })
 
 .controller('VisitsCtrl', function($scope, $http , $stateParams) {
   var companies = new Array();
@@ -140,54 +131,19 @@ angular.module('starter.controllers', ['starter.services'])
       comm_txt: $scope.postData.comm_txt
     }
   };
-    
+  
 
-    // $http.post(server_url + '/visits/', newContact).success(function(data) {
-    //   console.log(newContact);
-    // });
+  url_params = "?customer_id=" + $scope.company.id+ "&visitor_id=" + $scope.current_user.id+ "&opp_txt=" + $scope.postData.opp_txt+ "&pain_txt=" + $scope.postData.pain_txt+ "&action_txt=" + $scope.postData.action_txt+ "&comm_txt=" + $scope.postData.comm_txt ;
 
-  //   $http.post(server_url + 'visits', newContact).
-  //   success(function(data, status, headers, config) {
-  //   alert(status);
-  // }).
-  //   error(function(data, status, headers, config) {
-  //      console.log(status);
-  // });
-
-  var request = $http({
-    method: "post",
-    url: server_url + '/visits',
-    // transformRequest: transformRequestAsFormPost,
-    data: newContact
+ $http.jsonp(server_url + "createget.json"+url_params+"&callback=JSON_CALLBACK")
+  .then(function(res){
+    console.log(res.data);
   });
-                
-  request.success(function( html ) {
-      console.log(html);
-  });    
-
-
-
-
+  // window.location.href='#/app/visits/'+$stateParams.id;
   }
 
 
 })
-// .controller('NewCtrl', function($scope, $http, $timeout, $stateParams, Demo) {
-//   $scope.companies = Demo.companies();
-
-//   $scope.autoExpand = function(e) {
-//         var element = typeof e === 'object' ? e.target : document.getElementById(e);
-//         var scrollHeight = element.scrollHeight -60; // replace 60 by the sum of padding-top and padding-bottom
-//         element.style.height =  scrollHeight + "px";    
-//     };
-
-//   function expand() {
-//     console.log("expand");
-//     $scope.autoExpand('TextArea');
-//   }
-//   // $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
-//   // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
-// })
 
 
 .controller('MapCtrl', function($scope, $ionicLoading) {
