@@ -41,10 +41,10 @@
 </ion-view>
 <ion-view view-title="Visits">
   <ion-content>
-    <div collection-repeat="company in companies">
+    <!-- <div collection-repeat="company in companies"> -->
     <div class="list card" style='background-color:#EEF8FB'>
       <div class="item item-avatar item-icon-right" style='background-color:#EEF8FB'>
-        <img src="{{companies[0].face}}" >
+        <img src="{{company.face}}" >
         <h2>{{company.name}}</h2>
         <p>{{company.address}} </p> 
        <span>{{company.visits.length}} prior visits</span>     
@@ -53,9 +53,9 @@
       <div class="card" ng-repeat="visit in company.visits">
         <a ng-href="#/app/visit/{{visit.id}}" class="item">
           <div class="item item-avatar item-button-right">
-            <img src="{{visit.face}}" >
-            <h2>{{visit.name}}</h2>
-            <p>{{visit.title}}<br>{{visit.visit_date}}   {{visit.icon_opp}}   </p>
+            <img src="{{visit.visitor.face}}" >
+            <h2>{{visit.visitor.name}}</h2>
+            <p>{{visit.visitor.title}}<br>{{visit.visit_date}} </p>
               <div class="buttons">
                 <button class="button button-clear" ng-show="visit.opp_txt.length > 0"><i class="icon ion-social-usd"></i></button>
                 <button class="button button-clear" ng-show="visit.pain_txt.length > 0"><i class="icon ion-alert"></i></button>
@@ -66,7 +66,7 @@
         </a>
       </div>
      
-    </div>     
+    <!-- </div>      -->
   <br><br>
   </ion-content>
 </ion-view>

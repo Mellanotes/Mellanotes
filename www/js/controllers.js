@@ -1,5 +1,5 @@
-// server_url = "https://mellanotes.herokuapp.com/";
-server_url = "http://localhost:3000/";
+server_url = "https://mellanotes.herokuapp.com/";
+// server_url = "http://localhost:3000/";
 
 angular.module('starter.controllers', ['starter.services'])
 
@@ -47,7 +47,7 @@ angular.module('starter.controllers', ['starter.services'])
 // })
 
 .controller('VisitsCtrl', function($scope, $http , $stateParams) {
-  
+  // debugger
   var companies = new Array();
   // var visits = new Array();
   // $http.jsonp("http://localhost:3000/customers.json")
@@ -57,12 +57,12 @@ angular.module('starter.controllers', ['starter.services'])
   $http.jsonp(server_url + "customers/"+$stateParams.id+".json?callback=JSON_CALLBACK")
     .then(function(res){
         companies = res.data; 
-        $scope.companies = companies
-        $scope.visits = $scope.companies[0].visits
-        console.log('VisitsCtrl:companies', $scope.companies);
+        $scope.company = companies
+        $scope.visits = $scope.company.visits
+        console.log('VisitsCtrl:companies', $scope.company);
     });
 
-  // debugger
+  
   $scope.data = {
     showReordering: false
   };
