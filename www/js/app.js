@@ -49,18 +49,18 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
        }
     }
   })
-    .state('app.visits', {
-      url: "/visits",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/visits.html",
-          controller: 'VisitsCtrl'
-        }
+  .state('app.visits', {
+    url: "/visits",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/visits.html",
+        controller: 'VisitsCtrl'
       }
-    })
+    }
+  })
 
-  .state('app.single', {
-    url: "/visits/:visitId",
+  .state('app.visit', {
+    url: "/visit/:visitId",
     views: {
       'menuContent': {
         templateUrl: "templates/visit.html",
@@ -68,6 +68,17 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+
+  .state('app.new', {
+    url: "/visits/new",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/new.html",
+        controller: 'NewCtrl'
+      }
+    }
+  })
+
   .state('app.map', {
       url: "/map",
       views: {
