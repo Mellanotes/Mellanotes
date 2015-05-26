@@ -1,5 +1,5 @@
-// server_url = "https://mellanotes.herokuapp.com/";
-server_url = "http://localhost:3000/";
+server_url = "https://mellanotes.herokuapp.com/";
+// server_url = "http://localhost:3000/";
 
 angular.module('starter.controllers', ['starter.services'])
 
@@ -138,8 +138,8 @@ angular.module('starter.controllers', ['starter.services'])
  $http.jsonp(server_url + "createget.json"+url_params+"&callback=JSON_CALLBACK")
   .then(function(res){
     console.log(res.data);
+    window.location.href='#/app/visits/'+$stateParams.id;
   });
-  // window.location.href='#/app/visits/'+$stateParams.id;
   }
 
 
