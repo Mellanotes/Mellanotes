@@ -141,7 +141,7 @@ angular.module('starter.controllers', ['starter.services'])
 
 //        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
 		var infoWindow = new google.maps.InfoWindow ({
-		  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/1'>Elbit</a>"
+		  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/1'>Elbit Systems</a>"
 		});
         var client1 = new google.maps.Marker({
             position: new google.maps.LatLng(32.6661, 35.1041),
