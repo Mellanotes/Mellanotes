@@ -3,3 +3,23 @@
     <h2>new visit</h2>
   </ion-content>
 </ion-view>
+<ion-view view-title="Visits">
+  <ion-content>
+    <div class="list card" style='background-color:#EEF8FB'>
+      <div class="item item-avatar item-icon-right" style='background-color:#EEF8FB'>
+        <img src="{{companies[0].face}}" >
+        <h2>{{companies[0].name}}</h2>
+        <p>{{companies[0].address}} </p> 
+       <span>{{visits.length}} prior visits</span>     
+      </div>     
+    </div>
+    <div class="card" collection-repeat="visit in visits">
+      <a ng-href="#/app/visits/{{visit.id}}" class="item">
+        <div class="item item-avatar item-button-right">
+          
+        </div>
+      </a>
+    </div>      
+  <br><br>
+  </ion-content>
+</ion-view>
