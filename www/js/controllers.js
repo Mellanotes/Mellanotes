@@ -46,11 +46,48 @@ angular.module('starter.controllers', ['starter.services'])
   // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
 })
 
-.controller('NewCtrl', function($scope, $stateParams, Demo) {
-  $scope.companies = Demo.companies();
-  // $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
-  // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
-})
+.controller('NewCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+  
+  // Load the data
+ 
+
+  $scope.expandTextOpp = function(){
+    console.log(this.id);
+    var element = document.getElementById("txtOpportunities");
+    element.style.height =  element.scrollHeight + "px";
+  }
+  $scope.expandTextPai = function(){
+    console.log(this.id);
+    var element = document.getElementById("txtPain");
+    element.style.height =  element.scrollHeight + "px";
+  }
+  $scope.expandTextAct = function(){
+    console.log(this.id);
+    var element = document.getElementById("txtAction");
+    element.style.height =  element.scrollHeight + "px";
+  }
+  $scope.expandTextCom = function(){
+    console.log(this.id);
+    var element = document.getElementById("txtComment");
+    element.style.height =  element.scrollHeight + "px";
+  }
+}])
+// .controller('NewCtrl', function($scope, $http, $timeout, $stateParams, Demo) {
+//   $scope.companies = Demo.companies();
+
+//   $scope.autoExpand = function(e) {
+//         var element = typeof e === 'object' ? e.target : document.getElementById(e);
+//         var scrollHeight = element.scrollHeight -60; // replace 60 by the sum of padding-top and padding-bottom
+//         element.style.height =  scrollHeight + "px";    
+//     };
+  
+//   function expand() {
+//     console.log("expand");
+//     $scope.autoExpand('TextArea');
+//   }
+//   // $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
+//   // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
+// })
 
 
 .controller('MapCtrl', function($scope, $ionicLoading) {

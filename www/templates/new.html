@@ -4,16 +4,43 @@
       <div class="item item-avatar item-icon-right" style='background-color:#EEF8FB'>
         <img src="{{companies[0].face}}" >
         <h2>{{companies[0].name}}</h2>
-        <p>{{companies[0].address}} </p>   
+        <p>{{companies[0].address}} </p>  
+        <span>Input your visit's insights below:</span>  
       </div>     
     </div>
-    <div class="card" collection-repeat="visit in visits">
-      <a ng-href="#/app/visits/{{visit.id}}" class="item">
-        <div class="item item-avatar item-button-right">
-          
+    <div class="card">
+
+      <div class="list">
+        <div class="item">         
+          <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-social-usd"></i></div>
+          <h2 style=" padding-top: 10px; ">Opportunities</h2>
+          <p style="width: 100%;">
+          <textarea id="txtOpportunities" ng-model="loremIpsumOpp" ng-keyup="expandTextOpp()" ng-keydown="expandTextOpp()" placeholder="Add Opportunities" style="width: 100%;"></textarea></p>
         </div>
-      </a>
-    </div>      
+        <div class="item">         
+          <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-alert"></i></div>
+          <h2 style=" padding-top: 10px; ">Pain Points</h2>
+          <p style="width: 100%;">
+          <textarea id="txtPain" ng-model="loremIpsumPai" ng-keyup="expandTextPai()" ng-keydown="expandTextPai()" placeholder="Add Pain Points" style="width: 100%;"></textarea></p>
+        </div>
+        <div class="item">         
+          <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-ios-list-outline"></i></div>
+          <h2 style=" padding-top: 10px; ">Action Items</h2>
+          <p style="width: 100%;">
+          <textarea id="txtAction" ng-model="loremIpsumAct" ng-keyup="expandTextAct()" ng-keydown="expandTextAct()" placeholder="Add Action Items" style="width: 100%;"></textarea></p>
+        </div>
+        <div class="item">         
+          <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-document-text"></i></div>
+          <h2 style=" padding-top: 10px; ">Comments</h2>
+          <p style="width: 100%;">
+          <textarea id="txtComment" ng-model="loremIpsumCom" ng-keyup="expandTextCom()" ng-keydown="expandTextCom()" placeholder="Add Comments" style="width: 100%;"></textarea></p>
+        </div>
+      </div>
+
+    </div> 
+    <div class="padding">
+      <button type="submit" class="button button-block button-positive">Create Visit</button>
+    </div>    
   <br><br>
   </ion-content>
 </ion-view>
