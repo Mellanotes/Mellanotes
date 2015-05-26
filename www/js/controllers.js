@@ -62,7 +62,10 @@ angular.module('starter.controllers', ['starter.services'])
         console.log('VisitsCtrl:companies', $scope.company);
     });
 
-  
+  $scope.addNew = function() {
+    window.location.href='#/app/visits/'+$stateParams.id+'/new';
+  }
+  $scope.id = $stateParams.id;
   $scope.data = {
     showReordering: false
   };

@@ -80,7 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
   .state('app.new', {
-    url: "/visits/new",
+    url: "/visits/:visitId/new",
     views: {
       'menuContent': {
         templateUrl: "templates/new.html",
