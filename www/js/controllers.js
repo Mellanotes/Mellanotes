@@ -1,3 +1,6 @@
+server_url = "https://mellanotes.herokuapp.com/";
+// server_url = "http://localhost:3000/";
+
 angular.module('starter.controllers', ['starter.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -51,8 +54,8 @@ angular.module('starter.controllers', ['starter.services'])
   //      .then(function(res){
   //         companies = res.data;                
   //       });
-
-  $http.jsonp("http://localhost:3000/customers.json?callback=JSON_CALLBACK")
+"https://mellanotes.herokuapp.com/"
+  $http.jsonp(server_url + "customers.json?callback=JSON_CALLBACK")
     .then(function(res){
         companies = res.data; 
         $scope.companies = companies
