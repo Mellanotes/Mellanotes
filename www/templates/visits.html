@@ -1,38 +1,3 @@
-<!-- 
-<ion-view>
-  <ion-nav-buttons side="right">
-    <button class="button button-clear" onclick="window.location.href='#/app/visits/new'"><i class="icon ion-plus-round"></i></button>
-  </ion-nav-buttons>
-</ion-view>
-<ion-view view-title="Visits">
-  <ion-content>
-    <div class="list card" style='background-color:#EEF8FB'>
-      <div class="item item-avatar item-icon-right" style='background-color:#EEF8FB'>
-        <img src="{{companies[0].face}}" >
-        <h2>{{companies[0].name}}</h2>
-        <p>{{companies[0].address}} </p> 
-       <span>{{visits.length}} prior visits</span>     
-      </div>     
-    </div>
-    <div class="card" collection-repeat="visit in visits">
-      <a ng-href="#/app/visit/{{visit.id}}" class="item">
-        <div class="item item-avatar item-button-right">
-          <img src="{{visit.face}}" >
-          <h2>{{visit.name}}</h2>
-          <p>{{visit.title}}<br>{{visit.visit_date}}   {{visit.icon_opp}}   </p>
-            <div class="buttons">
-              <button class="button button-clear" ng-show="visit.opp_txt.length > 0"><i class="icon ion-social-usd"></i></button>
-              <button class="button button-clear" ng-show="visit.pain_txt.length > 0"><i class="icon ion-alert"></i></button>
-              <button class="button button-clear" ng-show="visit.action_txt.length > 0"><i class="icon ion-ios-list-outline"></i></button>
-              <button class="button button-clear" ng-show="visit.comm_txt.length > 0"><i class="icon ion-document-text"></i></button>
-            </div>
-        </div>
-      </a>
-    </div>      
-  <br><br>
-  </ion-content>
-</ion-view> -->
-
 
 <ion-view>
   <ion-nav-buttons side="right">
@@ -51,16 +16,16 @@
       </div>     
     </div> 
       <div class="card" ng-repeat="visit in company.visits">
-        <a ng-href="#/app/visit/{{visit.id}}" class="item">
+        <a ng-href="#/app/visit/{{visit.id}}" class="item" style="padding:2px !important">
           <div class="item item-avatar item-button-right">
             <img src="{{visit.visitor.face}}" >
             <h2>{{visit.visitor.name}}</h2>
             <p>{{visit.visitor.title}}<br>{{visit.visit_date}} </p>
               <div class="buttons">
-                <button class="button button-clear" ng-show="visit.opp_txt.length > 0"><i class="icon ion-social-usd"></i></button>
-                <button class="button button-clear" ng-show="visit.pain_txt.length > 0"><i class="icon ion-alert"></i></button>
-                <button class="button button-clear" ng-show="visit.action_txt.length > 0"><i class="icon ion-ios-list-outline"></i></button>
-                <button class="button button-clear" ng-show="visit.comm_txt.length > 0"><i class="icon ion-document-text"></i></button>
+                <button class=" button-clear" style="font-size:18px" ng-show="visit.opp_txt.length > 0"><i class="icon ion-social-usd"></i></button>
+                <button class=" button-clear" style="font-size:18px" ng-show="visit.pain_txt.length > 0"><i class="icon ion-alert"></i></button>
+                <button class=" button-clear" style="font-size:18px" ng-show="visit.action_txt.length > 0"><i class="icon ion-ios-list-outline"></i></button>
+                <button class=" button-clear" style="font-size:18px" ng-show="visit.comm_txt.length > 0"><i class="icon ion-ios-chatbubble-outline"></i></button>
               </div>
           </div>
         </a>
