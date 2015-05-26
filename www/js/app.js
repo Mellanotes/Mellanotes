@@ -59,6 +59,16 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     }
   })
 
+  .state('app.visits', {
+    url: "/visits/:id",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/visits.html",
+        controller: 'VisitsCtrl'
+      }
+    }
+  })
+
   .state('app.visit', {
     url: "/visit/:visitId",
     views: {
