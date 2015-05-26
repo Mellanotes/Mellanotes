@@ -1,5 +1,5 @@
-// server_url = "https://mellanotes.herokuapp.com/";
-server_url = "http://localhost:3000/";
+server_url = "https://mellanotes.herokuapp.com/";
+// server_url = "http://localhost:3000/";
 
 angular.module('starter.controllers', ['starter.services'])
 
