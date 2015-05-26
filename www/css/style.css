@@ -1,2 +1,11 @@
 html, body, #map, #map-container { height: 100%; margin: 0; padding: 0;}
 .gm-style-iw + div {display: none;}
+
+textarea {
+	min-height:40px;
+
+}
+
+* {
+  -webkit-font-smoothing:antialiased !important;
+}
