@@ -1,5 +1,5 @@
-server_url = "https://mellanotes.herokuapp.com/";
-// server_url = "http://localhost:3000/";
+// server_url = "https://mellanotes.herokuapp.com/";
+server_url = "http://localhost:3000/";
 
 angular.module('starter.controllers', ['starter.services'])
 
@@ -36,9 +36,9 @@ angular.module('starter.controllers', ['starter.services'])
   };
 })
 // .controller('VisitsCtrl', function($scope, $stateParams, Demo) {
-  
+
 //   $scope.companies = Demo.companies();
-  
+
 //   $scope.data = {
 //     showReordering: false
 //   };
@@ -49,12 +49,12 @@ angular.module('starter.controllers', ['starter.services'])
 .controller('VisitsCtrl', function($scope, $http , $stateParams) {
   var companies = new Array();
   $http.jsonp(server_url + "customers/"+$stateParams.id+".json?callback=JSON_CALLBACK")
-    .then(function(res){
-        companies = res.data; 
-        $scope.company = companies
-        $scope.visits = $scope.company.visits
-        console.log('VisitsCtrl:companies', $scope.company);
-    });
+  .then(function(res){
+    companies = res.data; 
+    $scope.company = companies
+    $scope.visits = $scope.company.visits
+    console.log('VisitsCtrl:companies', $scope.company);
+  });
 
   $scope.addNew = function() {
     window.location.href='#/app/visits/'+$stateParams.id+'/new';
@@ -69,10 +69,10 @@ angular.module('starter.controllers', ['starter.services'])
 
   var visits = new Array();
   $http.jsonp(server_url + "visits/"+ $stateParams.id + ".json?callback=JSON_CALLBACK")
-    .then(function(res){
-        visits = res.data; 
-        $scope.visit = visits; 
-        console.log('VisitCtrl:visit', $scope.visit);
+  .then(function(res){
+    visits = res.data; 
+    $scope.visit = visits; 
+    console.log('VisitCtrl:visit', $scope.visit);
   });
 
   $scope.data = {
@@ -81,11 +81,32 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 
-.controller('NewCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
-  
-  // Load the data
- 
+.controller('NewCtrl', function($scope, $http, $stateParams) {
 
+  $scope.postData = {};
+
+  $http.jsonp(server_url + "customers/"+$stateParams.id+".json?callback=JSON_CALLBACK")
+  .then(function(res){
+    $scope.company = res.data; 
+    console.log('VisitsCtrl:company', $scope.company);
+  });
+
+
+  $http.jsonp(server_url + "visitors.json?callback=JSON_CALLBACK")
+  .then(function(res){
+    $scope.visitors = res.data; 
+    console.log('VisitsCtrl:visitors', $scope.visitors);
+    $scope.current_user = res.data[0];
+    console.log('VisitsCtrl:current_user',$scope.current_user);
+  });
+
+
+  
+
+  $scope.data = {
+    showReordering: false
+  };
+  // Load the data
   $scope.expandTextOpp = function(){
     console.log(this.id);
     var element = document.getElementById("txtOpportunities");
@@ -106,10 +127,51 @@ angular.module('starter.controllers', ['starter.services'])
     var element = document.getElementById("txtComment");
     element.style.height =  element.scrollHeight + "px";
   }
-  $scope.newPost = function(){
+  
+  $scope.addVisit = function(){
     console.log("submit here");
+
+    var newContact = { visit : {
+      company_id: $scope.company.id,
+      visitor_id: $scope.current_user.id,
+      opt_txt: $scope.postData.opt_txt,
+      pain_txt: $scope.postData.pain_txt,
+      action_txt: $scope.postData.action_txt,
+      comm_txt: $scope.postData.comm_txt
+    }
+  };
+    
+
+    // $http.post(server_url + '/visits/', newContact).success(function(data) {
+    //   console.log(newContact);
+    // });
+
+  //   $http.post(server_url + 'visits', newContact).
+  //   success(function(data, status, headers, config) {
+  //   alert(status);
+  // }).
+  //   error(function(data, status, headers, config) {
+  //      console.log(status);
+  // });
+
+  var request = $http({
+    method: "post",
+    url: server_url + '/visits',
+    // transformRequest: transformRequestAsFormPost,
+    data: newContact
+  });
+                
+  request.success(function( html ) {
+      console.log(html);
+  });    
+
+
+
+
   }
-}])
+
+
+})
 // .controller('NewCtrl', function($scope, $http, $timeout, $stateParams, Demo) {
 //   $scope.companies = Demo.companies();
 
@@ -118,7 +180,7 @@ angular.module('starter.controllers', ['starter.services'])
 //         var scrollHeight = element.scrollHeight -60; // replace 60 by the sum of padding-top and padding-bottom
 //         element.style.height =  scrollHeight + "px";    
 //     };
-  
+
 //   function expand() {
 //     console.log("expand");
 //     $scope.autoExpand('TextArea');
@@ -129,51 +191,51 @@ angular.module('starter.controllers', ['starter.services'])
 
 
 .controller('MapCtrl', function($scope, $ionicLoading) {
-    window.setTimeout(function(){
-        var myLatlng = new google.maps.LatLng(32.6652, 35.1059);
+  window.setTimeout(function(){
+    var myLatlng = new google.maps.LatLng(32.6652, 35.1059);
 
-        var mapOptions = {
-            center: myLatlng,
-            zoom: 16,
-			disableDefaultUI: true,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+    var mapOptions = {
+      center: myLatlng,
+      zoom: 16,
+      disableDefaultUI: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
 
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions)
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions)
 
 
 //        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-		var infoWindow = new google.maps.InfoWindow ({
-		  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/1'>Elbit Systems</a>"
-		});
-        var client1 = new google.maps.Marker({
-            position: new google.maps.LatLng(32.6661, 35.1041),
-            map: map,
-            title: "Elbit",
-			infoWindow: infoWindow
-        });
+var infoWindow = new google.maps.InfoWindow ({
+  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/1'>Elbit Systems</a>"
+});
+var client1 = new google.maps.Marker({
+  position: new google.maps.LatLng(32.6661, 35.1041),
+  map: map,
+  title: "Elbit",
+  infoWindow: infoWindow
+});
 
-        google.maps.event.addListener(client1,'click',function(){
-          infoWindow.open(map,client1)
-		})
-		google.maps.event.trigger(client1, 'click')
+google.maps.event.addListener(client1,'click',function(){
+  infoWindow.open(map,client1)
+})
+google.maps.event.trigger(client1, 'click')
 
-		var infoWindow2 = new google.maps.InfoWindow ({
-		  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/2'>Given Imaging</a>"
-		});
-        var client2 = new google.maps.Marker({
-            position: new google.maps.LatLng(32.6628, 35.1048),
-            map: map,
-            title: "Given Imaging",
-			infoWindow: infoWindow2
-        });
-		google.maps.event.addListener(client2,'click',function(){
-			infoWindow2.open(map,client2)
-        })
-		google.maps.event.trigger(client2, 'click')
+var infoWindow2 = new google.maps.InfoWindow ({
+  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/2'>Given Imaging</a>"
+});
+var client2 = new google.maps.Marker({
+  position: new google.maps.LatLng(32.6628, 35.1048),
+  map: map,
+  title: "Given Imaging",
+  infoWindow: infoWindow2
+});
+google.maps.event.addListener(client2,'click',function(){
+ infoWindow2.open(map,client2)
+})
+google.maps.event.trigger(client2, 'click')
 
-        $scope.map = map;
-    });
-	
+$scope.map = map;
+});
+
 });
 
