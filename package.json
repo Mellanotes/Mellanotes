@@ -2,7 +2,6 @@
   "name": "mellanotes-new",
   "version": "1.0.0",
   "description": "mellanotes-new: An Ionic project",
-  // "main": "index.html",
   "dependencies": {
     "express": "~4.9.x",
     "gulp": "^3.5.6",
