@@ -1,28 +1,47 @@
 <ion-view view-title="Visits">
   <ion-content>
-    <div class="list card" style='background-color:#EEF8FB'>
-      <div class="item item-avatar item-icon-right" style='background-color:#EEF8FB'>
-        <img src="{{companies[0].face}}" >
-        <h2>{{companies[0].name}}</h2>
-     	  <p>{{companies[0].address}} </p> 
-       <span>{{employees.length}} prior visits</span>     
-      </div>     
-    </div>
-  	<div class="card" collection-repeat="employee in employees" collection-item-width="'95%'">
-  		<div onclick="location.href='#/app/comments/1'">
-    		<div class="item item-avatar item-button-right">
-          <img src="{{employee.face}}" >
-          <h2>{{employee.name}}</h2>
-          <p>{{employee.title}}<br>{{employee.visit_date}}   {{employee.icon_opp}}   </p>
-      	    <div class="buttons">
-              <button class="button button-clear" ng-show="employee.icon_opp"><i class="icon ion-social-usd"></i></button>
-            	<button class="button button-clear" ><i class="icon ion-alert"></i></button>
-            	<button class="button button-clear" ><i class="icon ion-ios-list-outline"></i></button>
-            	<button class="button button-clear" ><i class="icon ion-document-text"></i></button>
-            </div>
-        </div>
+  
+
+
+<div class="list card" style=background-color:#EEF8FB>
+
+  <div class="item item-avatar item-icon-right" style=background-color:#EEF8FB>
+    <img src="{{companies[0].face}}" >
+    <h2>{{companies[0].name}}</h2>
+  <p>{{companies[0].address}} </p>
+   <span>{{visits.length}} prior visits</span>
+    
+  </div>
+ 
+</div>
+
+
+
+  <div class="card" collection-repeat="visit in visits"
+      collection-item-width="'95%'" ">
+    
+              <div onclick="location.href='#/app/comments/1'">
+        
+               <div class="item item-avatar item-button-right">
+    <img src="{{visit.face}}" >
+    <h2>{{visit.name}}</h2>
+    <p>{{visit.title}}<BR>{{visit.visit_date}}   {{visit.icon_opp}}   </p>
+
+  
+  <div class="buttons">
+  
+    <button class="button button-clear" ng-show="visit.icon_opp == 'true'"><i class="icon ion-social-usd"></i></button>
+      <button class="button button-clear" ng-show="visit.icon_pain == 'true'"> <i class="icon ion-alert"></i></button>
+      <button class="button button-clear" ng-show="visit.icon_actions == 'true'"><i class="icon ion-ios-list-outline"></i></button>
+      <button class="button button-clear" ng-show="visit.icon_comm == 'true'"><i class="icon ion-document-text"></i></button>
+    
+          
+              </div>
+              </div>
+          </div>
       </div>
-  	</div>		  
-  <br><br>
+      
+<BR><BR>
+     
   </ion-content>
 </ion-view>
