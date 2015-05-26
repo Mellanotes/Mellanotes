@@ -1,4 +1,4 @@
-<ion-view view-title="Company	">
+<ion-view view-title="Visits">
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right list card" ng-repeat="company in companies" href="#/app/companies/{{companies.id}}" style='background-color:#EEF8FB'>
@@ -42,10 +42,10 @@
           <h2>{{visit.name}}</h2>
           <p>{{visit.title}}<br>{{visit.visit_date}}   {{visit.icon_opp}}   </p>
             <div class="buttons">
-              <button class="button button-clear" ng-show="visit.icon_opp"><i class="icon ion-social-usd"></i></button>
-              <button class="button button-clear" ><i class="icon ion-alert"></i></button>
-              <button class="button button-clear" ><i class="icon ion-ios-list-outline"></i></button>
-              <button class="button button-clear" ><i class="icon ion-document-text"></i></button>
+              <button class="button button-clear" ng-show="visit.opp_txt.length > 0"><i class="icon ion-social-usd"></i></button>
+              <button class="button button-clear" ng-show="visit.pain_txt.length > 0"><i class="icon ion-alert"></i></button>
+              <button class="button button-clear" ng-show="visit.action_txt.length > 0"><i class="icon ion-ios-list-outline"></i></button>
+              <button class="button button-clear" ng-show="visit.comm_txt.length > 0"><i class="icon ion-document-text"></i></button>
             </div>
         </div>
       </a>
