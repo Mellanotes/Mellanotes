@@ -103,6 +103,9 @@ angular.module('starter.controllers', ['starter.services'])
     var element = document.getElementById("txtComment");
     element.style.height =  element.scrollHeight + "px";
   }
+  $scope.newPost = function(){
+    console.log("submit here");
+  }
 }])
 // .controller('NewCtrl', function($scope, $http, $timeout, $stateParams, Demo) {
 //   $scope.companies = Demo.companies();
