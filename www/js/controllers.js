@@ -32,13 +32,45 @@ angular.module('starter.controllers', ['starter.services'])
     }, 1000);
   };
 })
-.controller('VisitsCtrl', function($scope, $stateParams, Demo) {
-  $scope.companies = Demo.companies();
+// .controller('VisitsCtrl', function($scope, $stateParams, Demo) {
+  
+//   $scope.companies = Demo.companies();
+  
+//   $scope.data = {
+//     showReordering: false
+//   };
+
+//   $scope.visits = Demo.visits();
+// })
+
+.controller('VisitsCtrl', function($scope, $http , $stateParams) {
+  
+  var companies = new Array();
+  // var visits = new Array();
+  // $http.jsonp("http://localhost:3000/customers.json")
+  //      .then(function(res){
+  //         companies = res.data;                
+  //       });
+
+  $http.jsonp("http://localhost:3000/customers.json?callback=JSON_CALLBACK")
+    .then(function(res){
+        companies = res.data; 
+        $scope.companies = companies
+        $scope.visits = $scope.companies[0].visits
+        console.log('VisitsCtrl:companies', $scope.companies);
+    });
+
+  // debugger
   $scope.data = {
     showReordering: false
   };
-
-  $scope.visits = Demo.visits();
+  // $http.jsonp("http://localhost:3000/visits.json")
+  //      .then(function(res){
+  //         visits = res.data;                
+  //       });
+  // console companies.visits
+  
+  // console.log('VisitsCtrl:visits', $scope.visits);
 })
 
 .controller('VisitCtrl', function($scope, $stateParams, Demo) {
