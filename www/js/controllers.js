@@ -47,6 +47,7 @@ angular.module('starter.controllers', ['starter.services'])
 })
 
 .controller('NewCtrl', function($scope, $stateParams, Demo) {
+  $scope.companies = Demo.companies();
   // $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
   // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
 })
