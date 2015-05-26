@@ -119,23 +119,10 @@ angular.module('starter.controllers', ['starter.services'])
     var element = document.getElementById("txtComment");
     element.style.height =  element.scrollHeight + "px";
   }
-  
+
+  // todo " + $scope.current_user.id+ "
   $scope.addVisit = function(){
-    console.log("submit here");
-
-    // visitor_id: $scope.current_user.id,
-    var newContact = { visit : {
-      company_id: $scope.company.id,
-      visitor_id: 1,
-      opt_txt: $scope.postData.opt_txt,
-      pain_txt: $scope.postData.pain_txt,
-      action_txt: $scope.postData.action_txt,
-      comm_txt: $scope.postData.comm_txt
-    }
-  };
-  
-
-  url_params = "?customer_id=" + $scope.company.id+ "&visitor_id=" + $scope.current_user.id+ "&opp_txt=" + $scope.postData.opp_txt+ "&pain_txt=" + $scope.postData.pain_txt+ "&action_txt=" + $scope.postData.action_txt+ "&comm_txt=" + $scope.postData.comm_txt ;
+  url_params = "?customer_id=" + $scope.company.id+ "&visitor_id=1&opp_txt=" + $scope.postData.opp_txt+ "&pain_txt=" + $scope.postData.pain_txt+ "&action_txt=" + $scope.postData.action_txt+ "&comm_txt=" + $scope.postData.comm_txt ;
 
  $http.jsonp(server_url + "createget.json"+url_params+"&callback=JSON_CALLBACK")
   .then(function(res){
