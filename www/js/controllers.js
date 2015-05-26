@@ -77,7 +77,7 @@ angular.module('starter.controllers', ['starter.services'])
 
 //        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
 		var infoWindow = new google.maps.InfoWindow ({
-		  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/company'>Elbit</a>"
+		  content: "<a href='/#/app/company'>Elbit</a>"
 		});
         var client1 = new google.maps.Marker({
             position: new google.maps.LatLng(32.6652, 35.1059),
@@ -88,12 +88,11 @@ angular.module('starter.controllers', ['starter.services'])
 		
         google.maps.event.addListener(client1,'click',function(){
           infoWindow.open(map,client1)
-
 		})
 		google.maps.event.trigger(client1, 'click')
 		
 		var infoWindow2 = new google.maps.InfoWindow ({
-		  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/company'>Given Imaging</a>"
+		  content: "<a href='/#/app/company'>Given Imaging</a>"
 		});
         var client2 = new google.maps.Marker({
             position: new google.maps.LatLng(32.6628, 35.1048),
