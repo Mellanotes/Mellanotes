@@ -40,22 +40,22 @@ angular.module('starter.controllers', ['starter.services'])
       address: 'Hatavor 2 Yokneam, Israel',
       location: "32.66624/35.10404",
       face: 'http://upload.wikimedia.org/wikipedia/commons/2/24/New_Elbit_Logo.jpg',
-      comments: Demo.comments().filter(function(a){ return a.company_id == 1 })
+      visits: Demo.visits().filter(function(a){ return a.company_id == 1 })
     }
   ];
   $scope.data = {
     showReordering: false
   };
 
-  $scope.employees = Demo.employees();
+  $scope.visits = Demo.visits();
 })
-.controller('CommentsCtrl', function($scope, Demo) {
-  $scope.comments = Demo.comments();
+.controller('VisitsCtrl', function($scope, Demo) {
+  $scope.visits = Demo.visits();
 })
 
-.controller('CommentCtrl', function($scope, $stateParams, Demo) {
-  $scope.comment = Demo.comments().filter(function(a){ return a.id == $stateParams.commentId })[0]
-  $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.comment.employee_id })[0];
+.controller('VisitCtrl', function($scope, $stateParams, Demo) {
+  $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
+  // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
 })
 
 

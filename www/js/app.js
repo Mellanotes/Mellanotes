@@ -58,22 +58,22 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     })
 
-    .state('app.comments', {
-      url: "/comments",
+    .state('app.visits', {
+      url: "/visits",
       views: {
         'menuContent': {
-          templateUrl: "templates/comments.html",
-          controller: 'CommentsCtrl'
+          templateUrl: "templates/visits.html",
+          controller: 'VisitsCtrl'
         }
       }
     })
 
   .state('app.single', {
-    url: "/comments/:commentId",
+    url: "/visits/:visitId",
     views: {
       'menuContent': {
-        templateUrl: "templates/comment.html",
-        controller: 'CommentCtrl'
+        templateUrl: "templates/visit.html",
+        controller: 'VisitCtrl'
       }
     }
   })
@@ -87,5 +87,5 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/comments');
+  $urlRouterProvider.otherwise('/app/visits');
 });
