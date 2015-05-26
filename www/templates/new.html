@@ -1,5 +1,6 @@
 <ion-view view-title="New Visit">
   <ion-content>
+  <form ng-submit="newPost()">
     <div class="list card" style='background-color:#EEF8FB'>
       <div class="item item-avatar item-icon-right" style='background-color:#EEF8FB'>
         <img src="{{companies[0].face}}" >
@@ -42,5 +43,6 @@
       <button type="submit" class="button button-block button-positive">Create Visit</button>
     </div>    
   <br><br>
+   </form>
   </ion-content>
 </ion-view>
