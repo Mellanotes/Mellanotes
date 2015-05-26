@@ -1,12 +1,9 @@
 html, body, #map, #map-container { height: 100%; margin: 0; padding: 0;}
 .gm-style-iw + div {display: none;}
 
-textarea {
-	min-height:40px;
+textarea {	min-height:40px;}
+* {  -webkit-font-smoothing:antialiased !important;}
+.card {margin: 10px 7px}
+ion-view {background-color: #ddd !important}
 
-}
-
-* {
-  -webkit-font-smoothing:antialiased !important;
-}
 
