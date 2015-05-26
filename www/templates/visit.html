@@ -4,30 +4,37 @@
 
 
         <div class="card">
-
-
-        <div class="item item-avatar item-button-right">
-            <img src="{{visit.face}}" >
-            <h2>{{visit.name}}</h2>
-            <p>{{visit.title}}<BR>{{visit.visit_date}} </p>
-
-            <BR>
-            <h2>Opportunities</h2>
-            <p style="white-space:normal;text-align:justify">{{visit.opp_txt}}</p>
-            <BR>
-            <h2>Pain Points</h2>
-            <p style="white-space:normal;">{{visit.pain_txt}}</p>
-            <BR>
-            <h2>Action Items</h2>
-            <p style="white-space:normal !important">{{visit.action_txt}}</p>
-            <BR>
-            <h2>Comments</h2>
-            <p style="white-space:normal !important">{{visit.comm_txt}}</p>
+             <div class="item item-avatar item-button-right">
+                <img src="{{visit.face}}" >
+                <h2>{{visit.name}}</h2>
+                <p>{{visit.title}}<BR>{{visit.visit_date}} </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item" style="padding-left:0px !important">
+                <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-social-usd"></i></div>
+                <h2>Opportunities</h2>
+                <p style="white-space:normal;">{{visit.opp_txt}}</p>
+            </div>
+            <div class="item" style="padding-left:0px !important">
+                <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-alert"></i></div>
+                <h2>Pain Points</h2>
+                <p style="white-space:normal;">{{visit.pain_txt}}</p>
+            </div>
+            <div class="item" style="padding-left:0px !important">
+                <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-ios-list-outline"></i></div>
+                <h2>Action Items</h2>
+                <p style="white-space:normal !important">{{visit.action_txt}}</p>
+            </div>
+            <div class="item" style="padding-left:0px !important">
+                <div style="width:15px;height:40px;float:left" class="button button-clear"><i class="icon ion-document-text"></i></div>
+                <h2>Comments</h2>
+                <p style="white-space:normal !important">{{visit.comm_txt}}</p>
+            </div>
 
         </div>
-        </div>
 
-        <BR><BR>
+
 
     </ion-content>
 </ion-view>
