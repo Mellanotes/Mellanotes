@@ -1,4 +1,4 @@
-
+<!-- 
 <ion-view>
   <ion-nav-buttons side="right">
     <button class="button button-clear" onclick="window.location.href='#/app/visits/new'"><i class="icon ion-plus-round"></i></button>
@@ -29,6 +29,44 @@
         </div>
       </a>
     </div>      
+  <br><br>
+  </ion-content>
+</ion-view> -->
+
+
+<ion-view>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" onclick="window.location.href='#/app/visits/new'"><i class="icon ion-plus-round"></i></button>
+  </ion-nav-buttons>
+</ion-view>
+<ion-view view-title="Visits">
+  <ion-content>
+    <div collection-repeat="company in companies">
+    <div class="list card" style='background-color:#EEF8FB'>
+      <div class="item item-avatar item-icon-right" style='background-color:#EEF8FB'>
+        <img src="{{companies[0].face}}" >
+        <h2>{{company.name}}</h2>
+        <p>{{company.address}} </p> 
+       <span>{{company.visits.length}} prior visits</span>     
+      </div>     
+    </div> 
+      <div class="card" ng-repeat="visit in company.visits">
+        <a ng-href="#/app/visit/{{visit.id}}" class="item">
+          <div class="item item-avatar item-button-right">
+            <img src="{{visit.face}}" >
+            <h2>{{visit.name}}</h2>
+            <p>{{visit.title}}<br>{{visit.visit_date}}   {{visit.icon_opp}}   </p>
+              <div class="buttons">
+                <button class="button button-clear" ng-show="visit.opp_txt.length > 0"><i class="icon ion-social-usd"></i></button>
+                <button class="button button-clear" ng-show="visit.pain_txt.length > 0"><i class="icon ion-alert"></i></button>
+                <button class="button button-clear" ng-show="visit.action_txt.length > 0"><i class="icon ion-ios-list-outline"></i></button>
+                <button class="button button-clear" ng-show="visit.comm_txt.length > 0"><i class="icon ion-document-text"></i></button>
+              </div>
+          </div>
+        </a>
+      </div>
+     
+    </div>     
   <br><br>
   </ion-content>
 </ion-view>
