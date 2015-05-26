@@ -55,6 +55,11 @@ angular.module('starter.controllers', ['starter.services'])
   // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
 })
 
+.controller('NewCtrl', function($scope, $stateParams, Demo) {
+  // $scope.visit = Demo.visits().filter(function(a){ return a.id == $stateParams.visitId })[0]
+  // $scope.employee = Demo.employees().filter(function(a){ return a.id == $scope.visit.employee_id })[0];
+})
+
 
 .controller('MapCtrl', function($scope, $ionicLoading) {
     window.setTimeout(function(){
