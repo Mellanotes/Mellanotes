@@ -2,9 +2,9 @@ server_url = "https://mellanotes.herokuapp.com/";
 // server_url = "http://localhost:3000/";
 
 
-angular.module('starter.controllers', ['starter.services'])
+var myApp = angular.module('starter.controllers', ['starter.services', 'uiGmapgoogle-maps'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+myApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -136,69 +136,79 @@ angular.module('starter.controllers', ['starter.services'])
 })
 
 
-.controller('MapCtrl', function($scope, $ionicLoading) {
-  window.setTimeout(function(){
-    var myLatlng = new google.maps.LatLng(32.6652, 35.1059);
+.controller('MapCtrl', function($scope, $ionicLoading, $location) {
+  $scope.map = {
+    center: {
+      latitude: 32.6661,
+      longitude: 35.1041
+    },
+    zoom: 16,
+    bounds: {},
+  };
 
-    var mapOptions = {
-      center: myLatlng,
-      zoom: 16,
-      disableDefaultUI: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+  $scope.map.infoWindow = {
+    show: true,
+    coords: {
+        latitude: 32.6666,
+        longitude: 35.1041
+    },
+    id: 1,
+    options: '',
+    name: 'Elbit Systems'
+  }
+  $scope.map.infoWindow2 = {
+      show: true,
+      coords: {
+          latitude: 32.6633,
+           longitude: 35.1048,
+      },
+      id: 2,
+      options: '',
+      name: 'Given Imaging'
+    }
+    $scope.map.infoWindow3 = {
+        show: true,
+        coords: {
+           latitude: 32.6628,
+           longitude: 35.1048,
+        },
+        id: 2,
+        options: ''
+      }
 
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions)
+    $scope.markers = [
+      {
+        latitude: 32.6661,
+        longitude: 35.1041,
+        id: 1,
+        locat2: 'Elbit'
+     },
+      {
+        latitude: 32.6628,
+        longitude: 35.1048,
+        locat2: 'Given Imaging',
+        id: 2,
+     },
+      {
+        latitude: 32.6648,
+        longitude: 35.1038,
+        id: 3,
+        locat2: '',
+        icon: '/img/blue-dot.png'
+      },
+    ];
 
 
-//        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-var infoWindow = new google.maps.InfoWindow ({
-  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/1'>Elbit Systems</a>"
-});
-var client1 = new google.maps.Marker({
-  position: new google.maps.LatLng(32.6661, 35.1041),
-  map: map,
-  title: "Elbit",
-  infoWindow: infoWindow
-});
 
-google.maps.event.addListener(client1,'click',function(){
-  infoWindow.open(map,client1)
+    $scope.map.markers = $scope.markers;
+
 })
-google.maps.event.trigger(client1, 'click')
 
-var infoWindow2 = new google.maps.InfoWindow ({
-  content: "&nbsp;&nbsp;&nbsp;&nbsp;<a href='/#/app/visits/2'>Given Imaging</a>"
-});
-var client2 = new google.maps.Marker({
-  position: new google.maps.LatLng(32.6628, 35.1048),
-  map: map,
-  title: "Given Imaging",
-  infoWindow: infoWindow2
-});
-google.maps.event.addListener(client2,'click',function(){
- infoWindow2.open(map,client2)
-})
-google.maps.event.trigger(client2, 'click')
+myApp.controller('InfoController', function ($scope, $log, $location) {
 
-window.setTimeout(function(){
-
-navigator.geolocation.getCurrentPosition(function(pos) {
-    //map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-
-    var myLocation = new google.maps.Marker({
-        position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-        map: map,
-        title: "My Location",
-
-    });
-
-    myLocation.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
-     map.panTo(myLocation.getPosition());
-  });
-  }, 3000)
-
-$scope.map = map;
-});
-
+      $scope.clickedButtonInWindow = function (param) {
+        var id = param || $scope.$parent.model.id
+        $location.path('/app/visits/'+id);
+      }
 });
 

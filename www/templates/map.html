@@ -1,6 +1,29 @@
 <ion-view view-title="Customers Near Me">
-    <div ng-controller="MapCtrl" id="map-container">
-        <div id="map" data-tap-disabled="true"></div>GO
-    </div>
+    <ion-content data-tap-disabled="true">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+            <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" options="'options'" events="">
+                <ui-gmap-windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+                    <!--<div>
+                        <div ng-controller='InfoController'>
+                            <a href="javasript:;" ng-click="clickedButtonInWindow()">{{locat}} ME</a>
+                        </div>
+                    </div>-->
+                </ui-gmap-windows>
+            </ui-gmap-markers>
+            <ui-gmap-window show="map.infoWindow.show" coords="map.infoWindow.coords" isIconVisibleOnClick="false" options="map.infoWindow.options"  ng-cloak>
+                <div>
+                    <div ng-controller='InfoController'>
+                        <a class="btn" ng-click="clickedButtonInWindow({{map.infoWindow.id}})">{{map.infoWindow.name}}</a>
+                    </div>
+                </div>
+            </ui-gmap-window>
+            <ui-gmap-window show="map.infoWindow2.show" coords="map.infoWindow2.coords" isIconVisibleOnClick="false" options="map.infoWindow2.options"  ng-cloak>
+                <div>
+                    <div ng-controller='InfoController'>
+                       <a class="btn" ng-click="clickedButtonInWindow({{map.infoWindow2.id}})">{{map.infoWindow2.name}}</a>
+                    </div>
+                </div>
+            </ui-gmap-window>
+        </ui-gmap-google-map>
     </ion-content>
 </ion-view>

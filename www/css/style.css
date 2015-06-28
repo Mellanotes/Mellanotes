@@ -5,5 +5,15 @@ textarea {	min-height:40px;}
 * {  -webkit-font-smoothing:antialiased !important;}
 .card {margin: 10px 7px}
 ion-view {background-color: #ddd !important}
-
-
+.scroll, ui-gmap-google-map, .angular-google-map, .angular-google-map-container {
+  height: 100%;
+}
+.marker-labels {
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+}
+.btn {
+  text-decoration:underline;
+  cursor:pointer;
+}
